@@ -2,6 +2,9 @@ import UIKit
 import PlaygroundSupport
 import SwiftUI
 
-//PlaygroundPage.current.liveView = UIHostingController(rootView: SwiftUILabView())
 
-PlaygroundPage.current.liveView = UIHostingController(rootView: TextFontsView())
+// Present the view controller in the Live View window
+PlaygroundPage.current.liveView = UIHostingController(rootView: FlipContainer())
+
+//PlaygroundPage.current.liveView = UIHostingController(rootView: SwiftUILabView())
+//PlaygroundPage.current.liveView = UIHostingController(rootView: TextFontsView())
