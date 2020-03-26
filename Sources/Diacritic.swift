@@ -21,7 +21,7 @@ public func diacritic() {
     showScalars(s: str.precomposedStringWithCanonicalMapping)
     print()
     
-    str = "běi"
+    str = "nü"
     
     showScalars(s: str)
     print()
@@ -31,4 +31,31 @@ public func diacritic() {
     
 }
 
+public func getTone() {
+    let string = "Duì5"
+    print(string.components(separatedBy: CharacterSet.decimalDigits).joined())
+
+    let s2 = string.components(separatedBy: CharacterSet.decimalDigits.inverted).filter { $0.count > 0 }.first
+    print(Int(s2 ?? "0"))
+
+
+    let str = "de"
+
+    let last = str.suffix(3)
+    print(last)
+
+    let pattern = "(.*)([aoeiu])(.*)"
+    let regex = try! NSRegularExpression(pattern: pattern)
+
+    let text2 = NSMutableString(string: "dui")
+
+
+    regex.replaceMatches(in: text2,
+                         options: .reportProgress,
+                         range: NSRange(location: 0,length: text2.length),
+                         withTemplate: "$1$2"  + "\u{030C}" + "$3")
+
+    print(text2)
+
+}
 
